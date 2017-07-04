@@ -1,4 +1,2 @@
-oracle note
-================
-###1.oracle 安装
-
+# oracle note
+### 1.oracle 安装

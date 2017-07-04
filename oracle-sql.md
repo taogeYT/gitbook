@@ -4,6 +4,7 @@
 
 1. 表信息查询
 ```python
+# 导入sys
 import sys
 ```
 

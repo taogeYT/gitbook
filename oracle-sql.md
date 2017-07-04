@@ -8,7 +8,7 @@
 import sys
 ```
 
-2.查询
+2. 查询
 ```
 SELECT \* from user\_tables;  
 查看名称包含log字符的表  

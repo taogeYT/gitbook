@@ -1,5 +1,5 @@
 # Summary
 
 * [前言](README.md)
-* [oracle sql](oracle-sql.md)
+* [oracle](oracle-sql.md)
 

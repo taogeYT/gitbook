@@ -49,10 +49,10 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	[[:punct:]] 任何标点符号。
 	[[:xdigit:]] 任何16进制的数字，相当于[0-9a-fA-F]。
 	\转义符 *, +, ?, {n}, {n,}, {n,m} 限定符^, $, anymetacharacter 位置和顺序。
-删除前后标点符号
-···
+####### 删除前后标点符号
+```
 SELECT REGEXP_REPLACE(',张三，李四:', '[[:punct:]]',' ') FROM DUAL
-···
+```
 	
 	
 	

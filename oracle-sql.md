@@ -10,10 +10,12 @@ grant connect,resource to jwdn;
 alter user jwdn default tablespace users;
 ```
 #### 3.创建/删除表
-
-	create table test(id number,text VARCHAR2(100)) / drop table test
-	create TABLE SG AS(SELECT a.*,b.经度,b."纬度" from TBL_ACDNT_RECORD a, s1 b WHERE a.ACDNT_ID = b.ACDNT_ID)
-
+```
+create table test(id number,text VARCHAR2(100)) / drop table test
+create TABLE SG AS(
+	SELECT A.*,B.X,b.Y from TBL_ACDNT_RECORD a,s1 b 
+	WHERE a.ACDNT_ID = b.ACDNT_ID)
+```
 >### 查询语句
 #### 1.从表中随机抽取N条数据显示
 ```sql

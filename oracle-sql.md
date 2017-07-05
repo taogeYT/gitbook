@@ -24,6 +24,7 @@ create T SG AS(
 select * from (select * from tablename order by sys_guid()) where rownum < N;
 ```
 >### ORACLE正则匹配
+	正则表达式由标准的元字符（metacharacters）所构成： '$' 匹配输入字符串的结尾位置。
 	如果设置了 RegExp 对象的 Multiline 属性，则 $ 也匹配 '\n' 或 '\r'。 
 	'?' 匹配前面的子表达式零次或一次。'*' 匹配前面的子表达式零次或多次。'|' 指明两项之间的一个选择。
 	例子：
@@ -39,18 +40,23 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	[[:punct:]] 任何标点符号。
 	[[:xdigit:]] 任何16进制的数字，相当于[0-9a-fA-F]。
 	\转义符 *, +, ?, {n}, {n,}, {n,m} 限定符^, $, anymetacharacter 位置和顺序。
-	1.REGEXP_SUBSTR函数格式如下：
+	**REGEXP_SUBSTR函数格式如下：**
 	function REGEXP_SUBSTR(String, pattern, position, occurrence, modifier)
 	__srcstr     ：需要进行正则处理的字符串
 	__pattern    ：进行匹配的正则表达式
 	__position   ：起始位置，从第几个字符开始正则表达式匹配（默认为1）
 	__occurrence ：标识第几个匹配组，默认为1
 	__modifier   ：模式（'i'不区分大小写进行检索；'c'区分大小写进行检索。默认为'c'。
+	**REGEXP_REPLACE函数格式如下：**
+	REGEXP_REPLACE(source_char, pattern [, replace_string [, position [, occurrence [, match_parameter ] ] ] ] )
+	source_char  : 搜索值的字符表达式。这通常是一个字符列，可以是任何数据类型CHAR，VARCHAR2，NCHAR，NVARCHAR2，CLOB或NCLOB。
+	pattern	     : 进行匹配的正则表达式
+	replace_str  : 可选。匹配的模式将替换pattern。如果省略replace_str参数，将删除所有匹配的模式，并返回结果字符串。
 	
-	正则表达式由标准的元字符（metacharacters）所构成： '$' 匹配输入字符串的结尾位置。	
+	
 	2.删除前后标点符号
 ```
-	SELECT REGEXP_REPLACE(',张三，李四:', '[[:punct:]]',' ') FROM DUAL
+SELECT REGEXP_REPLACE(',张三，李四:', '[[:punct:]]') FROM DUAL
 ```
 	
 	

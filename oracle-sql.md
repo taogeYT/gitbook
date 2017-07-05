@@ -23,5 +23,11 @@ create T SG AS(
 ```sql
 select * from (select * from tablename order by sys_guid()) where rownum < N;
 ```
+2.REGEXP_SUBSTR函数格式如下：
 
-
+	function REGEXP_SUBSTR(String, pattern, position, occurrence, modifier)
+	__srcstr     ：需要进行正则处理的字符串
+	__pattern    ：进行匹配的正则表达式
+	__position   ：起始位置，从第几个字符开始正则表达式匹配（默认为1）
+	__occurrence ：标识第几个匹配组，默认为1
+	__modifier   ：模式（'i'不区分大小写进行检索；'c'区分大小写进行检索。默认为'c'。）

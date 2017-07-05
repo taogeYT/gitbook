@@ -1,8 +1,9 @@
 # oracle note
-
 >### oracle 安装配置
 #### 1.启动
-	lsnrctl start /lsnrctl stop
+```
+lsnrctl start /lsnrctl stop
+```
 #### 2.创建用户
 ```sql
 create user jwdn identified by password;

@@ -5,13 +5,14 @@
 lsnrctl start /lsnrctl stop
 ```
 #### 2.创建用户
+- 创建普通用户并授权brain
 ```sql
 create user jwdn identified by password;
 grant connect,resource to jwdn;
 alter user jwdn default tablespace users;
 ```
 #### 3.创建/删除表
-```
+```sql
 create table test(id number,text VARCHAR2(100)) / drop table test
 create T SG AS(
 	SELECT A.*,B.X,B.Y from T1 A,T2 B

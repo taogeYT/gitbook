@@ -1,5 +1,5 @@
 # oracle note
->### oracle 安装配置
+### oracle 安装配置
 #### 1.启动
 ```
 lsnrctl start /lsnrctl stop
@@ -18,12 +18,12 @@ create T SG AS(
 	SELECT A.*,B.X,B.Y from T1 A,T2 B
 	WHERE A.ID = B.ID)
 ```
->### 查询语句
+### 查询语句
 1.从表中随机抽取N条数据显示
 ```sql
 select * from (select * from tablename order by sys_guid()) where rownum < N;
 ```
->### ORACLE正则匹配
+### ORACLE正则匹配
 	正则表达式由标准的元字符（metacharacters）所构成： '$' 匹配输入字符串的结尾位置。
 	如果设置了 RegExp 对象的 Multiline 属性，则 $ 也匹配 '\n' 或 '\r'。 
 	'?' 匹配前面的子表达式零次或一次。'*' 匹配前面的子表达式零次或多次。'|' 指明两项之间的一个选择。
@@ -48,7 +48,7 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	__occurrence ：标识第几个匹配组，默认为1
 	__modifier   ：模式（'i'不区分大小写进行检索；'c'区分大小写进行检索。默认为'c'。
 	
-	**REGEXP_REPLACE函数格式如下：**
+	REGEXP_REPLACE函数格式如下：
 	REGEXP_REPLACE(source_char, pattern [, replace_string [, position [, occurrence [, match_parameter ] ] ] ] )
 	source_char  : 搜索值的字符表达式。这通常是一个字符列，可以是任何数据类型CHAR，VARCHAR2，NCHAR，NVARCHAR2，CLOB或NCLOB。
 	pattern	     : 进行匹配的正则表达式。
@@ -56,22 +56,17 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	position     : 可选，在字符串中的开始位置搜索。如果省略，则默认为1。
 	occurrence   : 可选，是一个非负整数默认为1，指示替换操作的发生：如果指定0，那么所有出现将被替换字符串。
 		如果指定了正整数n，那么将替换第n次出现。
-	match_parameter : 模式（'i'不区分大小写进行检索；'c'区分大小写进行检索。默认为'c'
-	
-	2.删除前后标点符号
+	match_parameter : 模式（'i'不区分大小写进行检索；'c'区分大小写进行检索。默认为'c'）
+	例子：
+	删除前后标点符号
 	SELECT REGEXP_REPLACE(',张三，李四:', '[[:punct:]]') FROM DUAL
-TRIM()却有它自己的格式
-
-SELECT TRIM(';' FROM ';a;b;c;'),
-
-       TRIM(leading ';' FROM ';a;b;c;'),
-
-       TRIM(trailing ';' FROM ';a;b;c;'),
-
-       TRIM(both ';' FROM ';a;b;c;')
-
-  FROM dual;
 	
-	
-	
-	
+	trim 函数
+	注意：无法使用TRIM(‘;a;b;c;’, ‘;’)的格式
+	TRIM() 有它自己的格式
+	SELECT TRIM(';' FROM ';a;b;c;'),
+	       TRIM(leading ';' FROM ';a;b;c;'),
+	       TRIM(trailing ';' FROM ';a;b;c;'),
+	       TRIM(both ';' FROM ';a;b;c;')
+	FROM dual;
+

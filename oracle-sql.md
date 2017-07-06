@@ -24,6 +24,7 @@ create T SG AS(
 ```sql
 select * from (select * from tablename order by sys_guid()) where rownum < N;
 ```
+
 ### ORACLE正则匹配
 
 	正则表达式由标准的元字符（metacharacters）所构成： '$' 匹配输入字符串的结尾位置。
@@ -42,7 +43,7 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	[[:punct:]] 任何标点符号。
 	[[:xdigit:]] 任何16进制的数字，相当于[0-9a-fA-F]。
 	\转义符 *, +, ?, {n}, {n,}, {n,m} 限定符^, $, anymetacharacter 位置和顺序。
-	
+
 #### REGEXP_SUBSTR函数格式如下：
 
 	function REGEXP_SUBSTR(String, pattern, position, occurrence, modifier)
@@ -51,7 +52,7 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	__position   ：起始位置，从第几个字符开始正则表达式匹配（默认为1）
 	__occurrence ：标识第几个匹配组，默认为1
 	__modifier   ：模式（'i'不区分大小写进行检索；'c'区分大小写进行检索。默认为'c'。
-	
+
 #### REGEXP_REPLACE函数格式如下：
 
 	REGEXP_REPLACE(source_char, pattern [, replace_string [, position [, occurrence [, match_parameter ] ] ] ] )
@@ -65,6 +66,7 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	例子：
 	删除前后标点符号
 	SELECT REGEXP_REPLACE(',张三，李四:', '[[:punct:]]') FROM DUAL
+
 ### oracle函数
 ##### 1.trim 函数（trim,ltrim,rtrim）
 	SELECT /*TRIM(';a;b;c;'),*/ ltrim(';a;b;c;',';'), rtrim(';a;b;c;',';') FROM dual;

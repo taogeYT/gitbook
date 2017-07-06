@@ -1,18 +1,18 @@
 [toc]
 # oracle note
 ### oracle 安装配置
-#### 1.启动
+##### 1.启动
 ```
 lsnrctl start /lsnrctl stop
 ```
-#### 2.创建用户
+##### 2.创建用户
 创建普通用户并授权brain
 ```sql
 create user jwdn identified by password;
 grant connect,resource to jwdn;
 alter user jwdn default tablespace users;
 ```
-#### 3.创建/删除表
+##### 3.创建/删除表
 ```sql
 create table test(id number,text VARCHAR2(100)) / drop table test
 create T SG AS(
@@ -20,7 +20,7 @@ create T SG AS(
 	WHERE A.ID = B.ID)
 ```
 ### 查询语句
-1.从表中随机抽取N条数据显示
+##### 从表中随机抽取N条数据显示
 ```sql
 select * from (select * from tablename order by sys_guid()) where rownum < N;
 ```
@@ -43,7 +43,7 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	[[:xdigit:]] 任何16进制的数字，相当于[0-9a-fA-F]。
 	\转义符 *, +, ?, {n}, {n,}, {n,m} 限定符^, $, anymetacharacter 位置和顺序。
 
-#### REGEXP_SUBSTR函数格式如下：
+##### REGEXP_SUBSTR函数格式如下：
 
 	function REGEXP_SUBSTR(String, pattern, position, occurrence, modifier)
 	__srcstr     ：需要进行正则处理的字符串
@@ -52,7 +52,7 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	__occurrence ：标识第几个匹配组，默认为1
 	__modifier   ：模式（'i'不区分大小写进行检索；'c'区分大小写进行检索。默认为'c'。
 
-#### REGEXP_REPLACE函数格式如下：
+##### REGEXP_REPLACE函数格式如下：
 
 	REGEXP_REPLACE(source_char, pattern [, replace_string [, position [, occurrence [, match_parameter ] ] ] ] )
 	source_char  : 搜索值的字符表达式。这通常是一个字符列，可以是任何数据类型CHAR，VARCHAR2，NCHAR，NVARCHAR2，CLOB或NCLOB。

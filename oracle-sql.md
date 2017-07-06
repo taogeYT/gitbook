@@ -1,5 +1,4 @@
 [toc]
-# oracle note
 ### oracle 安装配置
 ##### 1.启动
 ```

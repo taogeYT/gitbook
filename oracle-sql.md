@@ -6,7 +6,7 @@
 lsnrctl start /lsnrctl stop
 ```
 #### 2.创建用户
-- 创建普通用户并授权brain
+创建普通用户并授权brain
 ```sql
 create user jwdn identified by password;
 grant connect,resource to jwdn;
@@ -24,7 +24,6 @@ create T SG AS(
 ```sql
 select * from (select * from tablename order by sys_guid()) where rownum < N;
 ```
-
 ### ORACLE正则匹配
 
 	正则表达式由标准的元字符（metacharacters）所构成： '$' 匹配输入字符串的结尾位置。

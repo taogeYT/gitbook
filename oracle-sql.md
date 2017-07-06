@@ -61,6 +61,17 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 ```
 SELECT REGEXP_REPLACE(',张三，李四:', '[[:punct:]]') FROM DUAL
 ```
+TRIM()却有它自己的格式
+
+SELECT TRIM(';' FROM ';a;b;c;'),
+
+       TRIM(leading ';' FROM ';a;b;c;'),
+
+       TRIM(trailing ';' FROM ';a;b;c;'),
+
+       TRIM(both ';' FROM ';a;b;c;')
+
+  FROM dual;
 	
 	
 	

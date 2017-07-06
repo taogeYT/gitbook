@@ -40,7 +40,7 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	[[:punct:]] 任何标点符号。
 	[[:xdigit:]] 任何16进制的数字，相当于[0-9a-fA-F]。
 	\转义符 *, +, ?, {n}, {n,}, {n,m} 限定符^, $, anymetacharacter 位置和顺序。
-**REGEXP_SUBSTR函数格式如下：**
+REGEXP_SUBSTR函数格式如下：
 
 	function REGEXP_SUBSTR(String, pattern, position, occurrence, modifier)
 	__srcstr     ：需要进行正则处理的字符串
@@ -49,7 +49,7 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	__occurrence ：标识第几个匹配组，默认为1
 	__modifier   ：模式（'i'不区分大小写进行检索；'c'区分大小写进行检索。默认为'c'。
 	
-**REGEXP_REPLACE函数格式如下：**
+-REGEXP_REPLACE函数格式如下：
 
 	REGEXP_REPLACE(source_char, pattern [, replace_string [, position [, occurrence [, match_parameter ] ] ] ] )
 	source_char  : 搜索值的字符表达式。这通常是一个字符列，可以是任何数据类型CHAR，VARCHAR2，NCHAR，NVARCHAR2，CLOB或NCLOB。
@@ -72,5 +72,27 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	       TRIM(trailing ';' FROM ';a;b;c;'),
 	       TRIM(both ';' FROM ';a;b;c;')
 	FROM dual;
-	
-
+##### 2.trunc()函数的用法
+	日期
+	1.select trunc(sysdate) from dual --2013-01-06 今天的日期为2013-01-06
+	2.select trunc(sysdate, 'mm') from dual --2013-01-01 返回当月第一天.
+	3.select trunc(sysdate,'yy') from dual --2013-01-01 返回当年第一天
+	4.select trunc(sysdate,'dd') from dual --2013-01-06 返回当前年月日
+	5.select trunc(sysdate,'yyyy') from dual --2013-01-01 返回当年第一天
+	6.select trunc(sysdate,'d') from dual --2013-01-06 (星期天)返回当前星期的第一天
+	7.select trunc(sysdate, 'hh') from dual --2013-01-06 17:00:00 当前时间为17:35 
+	8.select trunc(sysdate, 'mi') from dual --2013-01-06 17:35:00 TRUNC()函数没有秒的精
+	数字
+	TRUNC（number,num_digits） 
+	Number ：需要截尾取整的数字。 
+	Num_digits ：用于指定取整精度的数字。Num_digits 的默认值为 0。
+	TRUNC()函数截取时不进行四舍五入
+	9.select trunc(123.458) from dual --123
+	10.select trunc(123.458,0) from dual --123
+	11.select trunc(123.458,1) from dual --123.4
+	12.select trunc(123.458,-1) from dual --120
+	13.select trunc(123.458,-4) from dual --0
+	14.select trunc(123.458,4) from dual --123.458
+	15.select trunc(123) from dual --123
+	16.select trunc(123,1) from dual --123
+	17.select trunc(123,-1) from dual --120

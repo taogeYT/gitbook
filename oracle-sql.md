@@ -42,7 +42,7 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	[[:xdigit:]] 任何16进制的数字，相当于[0-9a-fA-F]。
 	\转义符 *, +, ?, {n}, {n,}, {n,m} 限定符^, $, anymetacharacter 位置和顺序。
 
-##### 1.REGEXP_SUBSTR函数格式如下：
+##### 1.regexp_substr函数格式如下：
 
 	function REGEXP_SUBSTR(String, pattern, position, occurrence, modifier)
 	__srcstr     ：需要进行正则处理的字符串
@@ -51,7 +51,7 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	__occurrence ：标识第几个匹配组，默认为1
 	__modifier   ：模式（'i'不区分大小写进行检索；'c'区分大小写进行检索。默认为'c'。
 
-##### 2.REGEXP_REPLACE函数格式如下：
+##### 2.regexp_replace函数格式如下：
 
 	REGEXP_REPLACE(source_char, pattern [, replace_string [, position [, occurrence [, match_parameter ] ] ] ] )
 	source_char  : 搜索值的字符表达式。这通常是一个字符列，可以是任何数据类型CHAR，VARCHAR2，NCHAR，NVARCHAR2，CLOB或NCLOB。

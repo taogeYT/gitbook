@@ -14,7 +14,7 @@
     );
     查看元数据表
     select * from user_sdo_geom_metadata;
-    
+
 ##### 第二步：创建空间字段的索引
     Create INDEX TMP_SG_SIDX on TMP_SG(SHAPE) Indextype is MDSYS.SPATIAL_INDEX;
     查看表的索引
@@ -29,7 +29,8 @@
         A.SHAPE,
         MDSYS.SDO_GEOMETRY(2001,NULL,MDSYS.SDO_POINT_TYPE(120.726830,31.306243,NULL),NULL,NULL),
         'DISTANCE=0.001' --DISTANCE 的值为坐标单位
-    ) = 'TRUE' 
+    ) = 'TRUE'
+    
 ##### 查询最近的N个空间位置结果通过约束'SDO_NUM_RES' = N
     SELECT * FROM
     TMP A

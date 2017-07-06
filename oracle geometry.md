@@ -21,7 +21,7 @@
     select * from user_indexes where table_name='TMP_SG';
 
 ### 空间字段查询使用
-##### 查询指定距离范围内的空间对象对象
+##### 1.查询指定距离范围内的空间对象对象
     SELECT LINK_ID,A.SHAPE.SDO_ORDINATES FROM
     TMP A
     WHERE
@@ -31,7 +31,7 @@
         'DISTANCE=0.001' --DISTANCE 的值为坐标单位
     ) = 'TRUE'
     
-##### 查询最近的N个空间位置结果通过约束'SDO_NUM_RES' = N
+##### 2.查询最近的N个空间位置结果通过约束'SDO_NUM_RES' = N
     SELECT * FROM
     TMP A
     WHERE
@@ -40,7 +40,7 @@
         MDSYS.SDO_GEOMETRY(2001,NULL,MDSYS.SDO_POINT_TYPE(120.726830,31.306243,NULL),NULL,NULL),
         'SDO_NUM_RES=1',1
     ) = 'TRUE'
-##### 两种查询结合应用来查找事故所属路段
+##### 3.两种查询结合应用来查找事故所属路段
     create TABLE SG_LD AS(
         SELECT A.LINK_ID,C.ID FROM
         TMP A,(

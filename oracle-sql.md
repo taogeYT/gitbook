@@ -53,7 +53,7 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 
 ##### 2.regexp_replace函数格式如下：
 
-	REGEXP_REPLACE(source_char, pattern, replace_string [, position [, occurrence [, match_parameter]]]])
+	REGEXP_REPLACE(source_char, pattern, replace_string[,position[,occurrence[,match_parameter]]]])
 	source_char  : 字符表达式,这通常是一个字符列，可以是任何数据类型CHAR,VARCHAR2,NCHAR,NVARCHAR2,CLOB或NCLOB
 	pattern	     : 进行匹配的正则表达式。
 	replace_str  : 可选，匹配的模式将替换pattern。如果省略replace_str参数，将删除所有匹配的模式，并返回结果字符串。

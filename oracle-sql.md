@@ -41,6 +41,7 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	[[:xdigit:]] 任何16进制的数字，相当于[0-9a-fA-F]。
 	\转义符 *, +, ?, {n}, {n,}, {n,m} 限定符^, $, anymetacharacter 位置和顺序。
 **REGEXP_SUBSTR函数格式如下：**
+
 	function REGEXP_SUBSTR(String, pattern, position, occurrence, modifier)
 	__srcstr     ：需要进行正则处理的字符串
 	__pattern    ：进行匹配的正则表达式
@@ -49,6 +50,7 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	__modifier   ：模式（'i'不区分大小写进行检索；'c'区分大小写进行检索。默认为'c'。
 	
 **REGEXP_REPLACE函数格式如下：**
+
 	REGEXP_REPLACE(source_char, pattern [, replace_string [, position [, occurrence [, match_parameter ] ] ] ] )
 	source_char  : 搜索值的字符表达式。这通常是一个字符列，可以是任何数据类型CHAR，VARCHAR2，NCHAR，NVARCHAR2，CLOB或NCLOB。
 	pattern	     : 进行匹配的正则表达式。
@@ -60,7 +62,7 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	例子：
 	删除前后标点符号
 	SELECT REGEXP_REPLACE(',张三，李四:', '[[:punct:]]') FROM DUAL
-#### oracle函数
+### oracle函数
 ##### 1.trim 函数（trim,ltrim,rtrim）
 	SELECT /*TRIM(';a;b;c;'),*/ ltrim(';a;b;c;',';'), rtrim(';a;b;c;',';') FROM dual;
 	注意：无法使用TRIM(‘;a;b;c;’, ‘;’)的格式

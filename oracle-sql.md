@@ -51,16 +51,15 @@ select * from (select * from tablename order by sys_guid()) where rownum < N;
 	**REGEXP_REPLACE函数格式如下：**
 	REGEXP_REPLACE(source_char, pattern [, replace_string [, position [, occurrence [, match_parameter ] ] ] ] )
 	source_char  : 搜索值的字符表达式。这通常是一个字符列，可以是任何数据类型CHAR，VARCHAR2，NCHAR，NVARCHAR2，CLOB或NCLOB。
-	pattern	     : 进行匹配的正则表达式
-	replace_str  : 可选。匹配的模式将替换pattern。如果省略replace_str参数，将删除所有匹配的模式，并返回结果字符串。
-	position     : 可选。在字符串中的开始位置搜索。如果省略，则默认为1。
-	occurrence   : 可选。是一个非负整数默认为1，指示替换操作的发生：如果指定0，那么所有出现将被替换字符串。如果指定了正整数n，那么将替换第n次出现。
+	pattern	     : 进行匹配的正则表达式。
+	replace_str  : 可选，匹配的模式将替换pattern。如果省略replace_str参数，将删除所有匹配的模式，并返回结果字符串。
+	position     : 可选，在字符串中的开始位置搜索。如果省略，则默认为1。
+	occurrence   : 可选，是一个非负整数默认为1，指示替换操作的发生：如果指定0，那么所有出现将被替换字符串。
+		如果指定了正整数n，那么将替换第n次出现。
 	match_parameter : 模式（'i'不区分大小写进行检索；'c'区分大小写进行检索。默认为'c'
 	
 	2.删除前后标点符号
-```
-SELECT REGEXP_REPLACE(',张三，李四:', '[[:punct:]]') FROM DUAL
-```
+	SELECT REGEXP_REPLACE(',张三，李四:', '[[:punct:]]') FROM DUAL
 TRIM()却有它自己的格式
 
 SELECT TRIM(';' FROM ';a;b;c;'),

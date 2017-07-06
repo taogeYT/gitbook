@@ -6,8 +6,8 @@
 lsnrctl start /lsnrctl stop
 ```
 ##### 2.创建用户
-创建普通用户并授权brain
 ```sql
+创建普通用户并授权brain
 create user jwdn identified by password;
 grant connect,resource to jwdn;
 alter user jwdn default tablespace users;

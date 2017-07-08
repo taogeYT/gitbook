@@ -13,7 +13,10 @@ alter user jwdn default tablespace users;
 ```
 ##### 3.创建/删除表
 ```sql
-create table test(id number,text VARCHAR2(100)) / drop table test
+CREATE TABLE "JWDN"."TEST"(
+	id number, 
+	"CODE" VARCHAR2(10) DEFAULT 00000000 NOT NULL ENABLE
+) / drop table test
 create T SG AS(
 	SELECT A.*,B.X,B.Y from T1 A,T2 B
 	WHERE A.ID = B.ID)

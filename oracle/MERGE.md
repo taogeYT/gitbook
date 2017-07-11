@@ -33,3 +33,6 @@
         DELETE WHERE X.TT=Y.TT; --从更新后的结果集里删除满足条件的记录
 
     SELECT * FROM W;
+    特别说明：
+    (select ID,TT from (SELECT ID,TT,row_number()over(partition by ID order by TT)n FROM W) WHERE n<=2)
+    改语句能从group分组中取指定的某行或几行的方法

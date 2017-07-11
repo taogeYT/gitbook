@@ -12,7 +12,7 @@
     **************************************************************
 ##### 应用实例，重复的数据合并
 
-    SELECT * FROM W;
+    SELECT * FROM W;
     MERGE INTO W X
     USING (SELECT * FROM W WHERE (ID,TT) IN (SELECT ID,MIN(TT) FROM W GROUP BY ID HAVING count(id)>1)) Y
     ON (X.ID=Y.ID)

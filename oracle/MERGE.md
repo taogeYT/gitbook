@@ -24,7 +24,7 @@
         X.CC=NVL(X.CC,Y.CC),
         X.TT=NVL(X.TT,Y.TT)
         WHERE (X.ID,X.TT) 
-        IN (select id,tt from (SELECT ID,TT,row_number()over(partition by ID order by TT)num FROM W) WHERE num<=2)
+        IN (select id,tt from (SELECT ID,TT,row_number()over(partition by ID order by TT)n FROM W) WHERE n<=2)
         DELETE WHERE X.TT=Y.TT;
 
     SELECT * FROM W;

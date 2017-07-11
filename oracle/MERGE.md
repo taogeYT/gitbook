@@ -10,6 +10,11 @@
     WHEN MATCHED THEN merge_update_clause 
     WHEN NOT MATCHED THEN merge_insert_clause
     **************************************************************
+    特别说明：
+    DELETE字句只能写在MATCHED情况中，不匹配时无法删除会报错。
+    当DELETE跟在UPDATE字句之后时，DELETE字句是针对UPDATE字句修改后的数据进行过滤的。
+    比如需要删除所有C字段="1"的数据，UPDATE字句将所有数据的C字段都更新为1，那么会删除所有数据，而不是原本为1的数据。
+    
 ##### 应用实例，重复的数据合并
 
     SELECT * FROM W;
@@ -24,7 +29,7 @@
         X.CC=NVL(X.CC,Y.CC),
         X.TT=NVL(X.TT,Y.TT)
         WHERE (X.ID,X.TT) 
-        IN (select id,tt from (SELECT ID,TT,row_number()over(partition by ID order by TT)n FROM W) WHERE n<=2)
+        IN (select ID,TT from (SELECT ID,TT,row_number()over(partition by ID order by TT)n FROM W) WHERE n<=2)
         DELETE WHERE X.TT=Y.TT;
 
     SELECT * FROM W;

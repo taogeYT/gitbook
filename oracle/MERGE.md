@@ -13,15 +13,18 @@
 ##### 应用实例，重复的数据合并
 
     SELECT * FROM W;
+
     MERGE INTO W X
     USING (SELECT * FROM W WHERE (ID,TT) IN (SELECT ID,MIN(TT) FROM W GROUP BY ID HAVING count(id)>1)) Y
     ON (X.ID=Y.ID)
     WHEN MATCHED THEN
-    UPDATE SET
-    X.AA=NVL(X.AA,Y.AA),
-    X.BB=NVL(X.BB,Y.BB),
-    X.CC=NVL(X.CC,Y.CC),
-    X.TT=NVL(X.TT,Y.TT)
-    WHERE (X.ID,X.TT) IN (select id,tt from (SELECT ID,TT,row_number()over(partition by ID order by TT)num FROM W) WHERE num<=2)
-    DELETE WHERE X.TT=Y.TT;
+        UPDATE SET
+        X.AA=NVL(X.AA,Y.AA),
+        X.BB=NVL(X.BB,Y.BB),
+        X.CC=NVL(X.CC,Y.CC),
+        X.TT=NVL(X.TT,Y.TT)
+        WHERE (X.ID,X.TT) 
+            IN (select id,tt from (SELECT ID,TT,row_number()over(partition by ID order by TT)num FROM W) WHERE num<=2)
+        DELETE WHERE X.TT=Y.TT;
+
     SELECT * FROM W;

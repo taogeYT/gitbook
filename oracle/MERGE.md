@@ -30,6 +30,6 @@
         X.TT=NVL(X.TT,Y.TT)
         WHERE (X.ID,X.TT) 
         IN (select ID,TT from (SELECT ID,TT,row_number()over(partition by ID order by TT)n FROM W) WHERE n<=2)
-        DELETE WHERE X.TT=Y.TT;
+        DELETE WHERE X.TT=Y.TT; --从更新后的结果集里删除满足条件的记录
 
     SELECT * FROM W;

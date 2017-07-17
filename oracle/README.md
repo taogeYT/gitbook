@@ -22,7 +22,7 @@ create T SG AS(
 	WHERE A.ID = B.ID)
 ```
 ##### 4.查询表的大小
-有两种含义的表大小:
+有两种含义的表大小:  
 一种是分配给一个表的物理空间数量，而不管空间是否被使用。可以这样查询获得字节数：
 
 	select segment_name, bytes from user_segments where segment_type = 'TABLE';

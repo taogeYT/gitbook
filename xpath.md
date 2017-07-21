@@ -14,7 +14,7 @@
   
     xml/lxml使用
     eletree对象代表整个文档结构，含有getroot方法获取根节点
-    eletree.findall('//div')
+    eletree.findall('//div')
     ele 代表某个节点对象
     ele.findall('.//div')
     ele.get('id')获取属性

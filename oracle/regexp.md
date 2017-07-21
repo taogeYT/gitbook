@@ -1,8 +1,11 @@
 ### 比较大小函数
+
 ###### 取最大值
 	GREATEST（x,y）
+	
 ###### 取最小值
 	LEAST(x,y)
+	
 ###### 应用实例，时间区间交集计算，两个时间段起始时间中最大值和结束时间中最小值比较，判断有无交集
 	SELECT * FROM PREDICTION X LEFT JOIN POLICE Y 
 	ON X.LINK_ID = Y.LINK_ID AND GREATEST(X.DATE_PERIOD,y.START_TIME)+(1/24/20) < LEAST(X.DATE_PERIOD+(1/12),y.END_TIME);

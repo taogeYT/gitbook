@@ -12,7 +12,9 @@
 
     xpath返回都是列表，没有匹配到就返回空列表[]
 
-    lxml使用
+    xml/lxml使用
+    eletree对象代表整个文档结构，含有getroot方法获取根节点
+    ele 代表某个节点对象
 
     ele.get('id')获取属性
     ele.tag

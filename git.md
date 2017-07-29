@@ -9,4 +9,3 @@
     git pull origin master # 拉取github上更新
 
     git status
-11111111return 'Point: x=%6.3f  y=%6.3f  hypot=%6.3f' % (self.x, self.y, self.hypot)

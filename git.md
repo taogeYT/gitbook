@@ -8,4 +8,5 @@
     git push -u origin master #将本地repository更新到github网站，即remote repository
     git pull origin master # 拉取github上更新
 
-    git status
+    git status
+11111111return 'Point: x=%6.3f  y=%6.3f  hypot=%6.3f' % (self.x, self.y, self.hypot)
